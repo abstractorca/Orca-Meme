@@ -1,7 +1,7 @@
 :root {
-  --bg-color: #fff;
-  --text-color: #000;
-  --accent-color: #ff00ff;
+  --bg-color: #0e0e0e;
+  --text-color: #f5f5f5;
+  --accent-color: #ffffff;
   --font-main: 'Arial', sans-serif;
 }
 
@@ -11,6 +11,7 @@ body {
   background: var(--bg-color);
   color: var(--text-color);
   scroll-behavior: smooth;
+  background-image: radial-gradient(circle at top left, #1a1a1a, #0e0e0e);
 }
 
 header {
@@ -18,16 +19,31 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background: var(--bg-color);
+  background: rgba(0, 0, 0, 0.6);
   position: sticky;
   top: 0;
   z-index: 1000;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #333;
+  backdrop-filter: blur(10px);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
+  color: var(--accent-color);
+  margin: 0;
+}
+
+.logo-img {
+  width: 40px;
+  height: 40px;
+  filter: drop-shadow(0 0 4px white) brightness(2);
 }
 
 nav ul {
@@ -36,12 +52,54 @@ nav ul {
   gap: 1rem;
   margin: 0;
   padding: 0;
+  align-items: center;
 }
 
 nav a {
   text-decoration: none;
   color: var(--text-color);
   font-weight: 600;
+  padding: 0.5rem 1rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+nav a:hover {
+  border-color: var(--accent-color);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.icon-large {
+  width: 100px;
+  height: 100px;
+  margin: 0 1rem;
+  cursor: pointer;
+  filter: drop-shadow(0 0 10px var(--accent-color));
+}
+
+.cta-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.scroll-image {
+  width: 100%;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.scroll-image img {
+  width: 150px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 .hero {
@@ -49,9 +107,18 @@ nav a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 90vh;
+  height: auto;
   text-align: center;
-  background: var(--bg-color);
+  padding: 2rem;
+  background: linear-gradient(to bottom right, #1a1a1a, #0e0e0e);
+}
+
+.hero-banner {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
 }
 
 .hero-title {
@@ -59,12 +126,13 @@ nav a {
   font-weight: bold;
   letter-spacing: 0.2em;
   margin: 0;
+  color: var(--accent-color);
 }
 
 .hero-sub {
   font-size: 1.5rem;
   margin-top: 1rem;
-  color: #555;
+  color: #ddd;
 }
 
 .section {
@@ -72,6 +140,10 @@ nav a {
   max-width: 800px;
   margin: 0 auto;
   text-align: center;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  margin-bottom: 2rem;
 }
 
 input[type="text"] {
@@ -79,45 +151,35 @@ input[type="text"] {
   width: 60%;
   font-size: 1rem;
   margin-top: 1rem;
+  background: #1f1f1f;
+  color: #f5f5f5;
+  border: 1px solid #444;
+  border-radius: 6px;
 }
 
 button {
   padding: 0.5rem 1rem;
   margin-left: 1rem;
   background-color: var(--accent-color);
-  color: white;
+  color: black;
   border: none;
   cursor: pointer;
   font-weight: bold;
+  border-radius: 6px;
   transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #cc00cc;
-}
-
-.orb {
-  width: 100px;
-  height: 100px;
-  background: var(--accent-color);
-  border-radius: 50%;
-  margin: 2rem auto;
-  box-shadow: 0 0 15px var(--accent-color);
-  animation: pulse 2s infinite;
-  cursor: pointer;
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); box-shadow: 0 0 15px var(--accent-color); }
-  50% { transform: scale(1.1); box-shadow: 0 0 25px var(--accent-color); }
-  100% { transform: scale(1); box-shadow: 0 0 15px var(--accent-color); }
+  background-color: #aaa;
 }
 
 footer {
   text-align: center;
   padding: 2rem;
   font-size: 0.9rem;
-  color: #888;
+  color: #aaa;
+  border-top: 1px solid #333;
+  background: #0e0e0e;
 }
 
 .fade-in {
@@ -137,5 +199,9 @@ footer {
   }
   input[type="text"] {
     width: 80%;
+  }
+  .icon-large {
+    width: 70px;
+    height: 70px;
   }
 }
