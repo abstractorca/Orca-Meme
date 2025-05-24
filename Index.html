@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MemeCoin</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <h1 class="logo">MemeCoin</h1>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#token">Token</a></li>
+        <li><a href="#join">Join</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2 class="hero-title">MEMECOIN</h2>
+    <p class="hero-sub">The meme that rules the chain.</p>
+  </section>
+
+  <section id="about" class="section fade-in">
+    <h2>Who and What is MemeCoin?</h2>
+    <p>MemeCoin is the decentralized prophecy of internet humor, redefined on the blockchain. It’s bold, it’s absurd, it’s you.</p>
+  </section>
+
+  <section id="token" class="section fade-in">
+    <h2>Token Info</h2>
+    <p>Contract Address:</p>
+    <input type="text" value="0x123456789abcdef" id="contract" readonly />
+    <button onclick="copyAddress()">Copy</button>
+  </section>
+
+  <section id="join" class="section fade-in">
+    <h2>Join the Mission</h2>
+    <div class="orb" onclick="window.open('https://t.me/memecoin', '_blank')"></div>
+    <p>Tap the orb. Become a legend.</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 MemeCoin</p>
+  </footer>
+
+  <script>
+    const faders = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    faders.forEach(el => observer.observe(el));
+
+    function copyAddress() {
+      const contract = document.getElementById("contract");
+      contract.select();
+      contract.setSelectionRange(0, 99999);
+      document.execCommand("copy");
+      alert("Address copied!");
+    }
+  </script>
+</body>
+</html>
