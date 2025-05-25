@@ -87,5 +87,21 @@
       alert("Address copied!");
     }
   </script>
+<div class="modal" id="imgModal">
+  <span class="close" onclick="document.getElementById('imgModal').style.display='none'">&times;</span>
+  <img id="modalImg" src="" alt="Expanded Image" />
+</div>
+
+<script>
+  const modal = document.getElementById('imgModal');
+  const modalImg = document.getElementById('modalImg');
+  document.querySelectorAll('.scroll-image img').forEach(img => {
+    img.addEventListener('click', () => {
+      modal.style.display = 'flex';
+      modalImg.src = img.src;
+    });
+  });
+</script>
+
 </body>
 </html>
